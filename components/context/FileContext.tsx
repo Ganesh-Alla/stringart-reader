@@ -1,19 +1,16 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
 
 type FileContextValue = {
-  hasFile: boolean;
   points: number[];
   setPoints: (points: number[]) => void;
-  setHasFile: (hasFile: boolean) => void;
 };
 
 const FileContext = createContext<FileContextValue | undefined>(undefined);
 
 export const FileProvider = ({ children }: { children: React.ReactNode }) => {
-  const [hasFile, setHasFile] = useState(false);
   const [points, setPoints] = useState<number[]>([]);
 
-  const value = useMemo<FileContextValue>(() => ({ hasFile, points, setPoints, setHasFile }), [points, hasFile]);
+  const value = useMemo<FileContextValue>(() => ({ points, setPoints }), [points]);
 
   return <FileContext.Provider value={value}>{children}</FileContext.Provider>;
 };
