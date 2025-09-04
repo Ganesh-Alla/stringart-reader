@@ -114,6 +114,7 @@ const Controls = () => {
     }
     const handleStop = () => {
         setIsPlaying(false);
+        setCurrentPointIndex(0);
         Speech.stop();
     }
     return (
@@ -161,21 +162,21 @@ const Controls = () => {
                     <SelectTrigger className="w-[180px]">
                         <SelectValue placeholder="Select delay time" />
                     </SelectTrigger>
-                    <SelectContent className="w-[180px]">
                         <NativeSelectScrollView>
+                    <SelectContent className="w-[180px]">
                             <SelectGroup>
                                 <SelectLabel>Delay</SelectLabel>
+                                <SelectItem label="1.5 seconds" value="1500">1.5 seconds</SelectItem>
+                                <SelectItem label="2 seconds" value="2000">2 seconds</SelectItem>
+                                <SelectItem label="2.5 seconds" value="2500">2.5 seconds</SelectItem>
                                 <SelectItem label="3 seconds" value="3000">3 seconds</SelectItem>
+                                <SelectItem label="3.5 seconds" value="3500">3.5 seconds</SelectItem>
                                 <SelectItem label="4 seconds" value="4000">4 seconds</SelectItem>
+                                <SelectItem label="4.5 seconds" value="4500">4.5 seconds</SelectItem>
                                 <SelectItem label="5 seconds" value="5000">5 seconds</SelectItem>
-                                <SelectItem label="6 seconds" value="6000">6 seconds</SelectItem>
-                                <SelectItem label="7 seconds" value="7000">7 seconds</SelectItem>
-                                <SelectItem label="8 seconds" value="8000">8 seconds</SelectItem>
-                                <SelectItem label="9 seconds" value="9000">9 seconds</SelectItem>
-                                <SelectItem label="10 seconds" value="10000">10 seconds</SelectItem>
                             </SelectGroup>
-                        </NativeSelectScrollView>
                     </SelectContent>
+                        </NativeSelectScrollView>
                 </Select>
             </View>
         </View>
