@@ -2,11 +2,13 @@ import Slider from '@react-native-community/slider';
 import { View } from "react-native";
 import { useControlContext } from "./context/ControlContext";
 import { useFileContext } from "./context/FileContext";
+import { useSpeechContext } from './context/SpeechContext';
 import { Text } from "./ui/text";
 
 const NumberDisplay = () => {
     const { points } = useFileContext();
     const { currentPointIndex, setCurrentPointIndex } = useControlContext();
+    const { setIsPlaying } = useSpeechContext();
     return (
         <View className="gap-4">
             <View className="items-center">
@@ -22,8 +24,11 @@ const NumberDisplay = () => {
                 <Slider
                     value={currentPointIndex + 1}
                     onValueChange={(value) => {
-                        setCurrentPointIndex(Math.round(value) - 1);
+                        setIsPlaying(false);
+                        const index = Math.max(0, Math.min(points.length - 1, Math.round(value) - 1));
+                        setCurrentPointIndex(index);
                     }}
+                    step={1}
                     style={{ width: '100%', height: 40 }}
                     minimumValue={1}
                     maximumValue={points.length}
