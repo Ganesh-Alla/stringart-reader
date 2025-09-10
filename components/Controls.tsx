@@ -166,6 +166,8 @@ const Controls = () => {
                     <SelectContent className="w-[180px]">
                             <SelectGroup>
                                 <SelectLabel>Delay</SelectLabel>
+                                <SelectItem label="0.5 seconds" value="500">0.5 seconds</SelectItem>
+                                <SelectItem label="1 second" value="1000">1 second</SelectItem>
                                 <SelectItem label="1.5 seconds" value="1500">1.5 seconds</SelectItem>
                                 <SelectItem label="2 seconds" value="2000">2 seconds</SelectItem>
                                 <SelectItem label="2.5 seconds" value="2500">2.5 seconds</SelectItem>

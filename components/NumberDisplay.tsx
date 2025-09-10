@@ -24,7 +24,6 @@ const NumberDisplay = () => {
                 <Slider
                     value={currentPointIndex + 1}
                     onValueChange={(value) => {
-                        setIsPlaying(false);
                         const index = Math.max(0, Math.min(points.length - 1, Math.round(value) - 1));
                         setCurrentPointIndex(index);
                     }}
